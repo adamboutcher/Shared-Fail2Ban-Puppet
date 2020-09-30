@@ -1,0 +1,15 @@
+#!python
+
+#api or mysql
+source = "<%= scope.lookupvar('fail2ban::params::shared::f2b_type') %>"
+
+mysql = {
+  "host": "<%= scope.lookupvar('fail2ban::params::shared::f2b_sqlhost') %>",
+  "user": "<%= scope.lookupvar('fail2ban::params::shared::f2b_sqluser') %>",
+  "passwd": "<%= scope.lookupvar('fail2ban::params::shared::f2b_sqlpass') %>",
+  "db": "<%= scope.lookupvar('fail2ban::params::shared::f2b_sqldb') %>",
+}
+
+apiurl = "<%= scope.lookupvar('fail2ban::params::shared::f2b_apiurl') %>"
+apitoken = "<%= scope.lookupvar('fail2ban::params::shared::f2b_apitoken') %>"
+
