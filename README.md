@@ -10,7 +10,7 @@ This is a sanitised version of an internal module but we do welcome and issues o
 
 ## Project Staticness
 
-This module contains a static version of the [Shared Fail2Ban](/bulgemonkey/Shared-Fail2Ban/) Project. As such there may be bugs, that have since been fixed, we suggest updating the files in the files/shared directory with the latest.
+This module contains a static version of the [Shared Fail2Ban](https://github.com/bulgemonkey/Shared-Fail2Ban/) Project. As such there may be bugs, that have since been fixed, we suggest updating the files in the files/shared directory with the latest.
 
 ## Project Credits
 
