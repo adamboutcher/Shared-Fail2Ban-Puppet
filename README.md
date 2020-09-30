@@ -2,7 +2,7 @@
 
 ## Project Outline
 
-This project aims to install the [Shared Fail2Ban](/bulgemonkey/Shared-Fail2Ban/) Client (host) and API Server with an easy to implement and read Puppet module.
+This project aims to install the [Shared Fail2Ban](https://github.com/bulgemonkey/Shared-Fail2Ban/) Client (host) and API Server with an easy to implement and read Puppet module.
 
 Hopefully this won't significantly clash with other modules from [PuppetForge](https://forge.puppet.com/) but we cannot gurantee it.
 
