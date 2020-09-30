@@ -38,7 +38,7 @@ Related works and partial works have been presented too the [WLCG](https://wlcg.
 ### Server - API (Recommended)
 1. Update your database details under fail2ban::server and files/shared_server/api_cfg.py
 2. Only apply the class fail2ban::server::api to your API server
-
+3. We highly recommend enabling SSL, LetsEncrypt/Certbot is simple and easy - You will need to uncomment the last few lines in (files/shared_server/http_api.conf) to force redirects to SSL
 
 ### Client / Host
 1. Update your database details if using sql or api token for api on the server
