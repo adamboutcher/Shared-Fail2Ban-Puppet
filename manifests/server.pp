@@ -16,7 +16,7 @@ class fail2ban::server::api {
     database => 'f2b',
   }
 
-  if $operatingsystem == 'CentOS' {
+  if ( $::os[name] == 'CentOS' or $::os[name] == 'Rocky' or $::os[name] == 'Alma') {
 
     if ! defined (Package['httpd']) {
       package { 'httpd': ensure  => latest, }
@@ -29,8 +29,8 @@ class fail2ban::server::api {
       package { 'python3-pip': ensure  => latest, }
     }
 
-    if $operatingsystemrelease =~ /^7.*/ {
-
+    case $::os[release][major] {
+    '7': {
       if ! defined (Package['httpd-devel']) {
         package { 'httpd-devel': ensure  => latest, }
       }
@@ -52,12 +52,21 @@ class fail2ban::server::api {
         creates => '/etc/httpd/modules/mod_wsgi_python3.so',
       }
 
-    } elsif $operatingsystemrelease =~ /^8.*/ {
+    }
+    '8','9': {
 
       if ! defined (Package['python3-mod_wsgi']) {
         package { 'python3-mod_wsgi': ensure  => latest, }
       }
 
+    }
+    
+    if !defined (Selboolean["httpd_can_network_connect_db"]) {
+      selboolean { "httpd_can_network_connect_db":
+        persistent => "true",
+        value      => "on",
+        require    => Package['httpd'],
+      }
     }
 
     exec { '/opt/f2bapi':
