@@ -28,7 +28,7 @@ Related works and partial works have been presented too the [WLCG](https://wlcg.
 1. Create a new directory in your module directory named "fail2ban".
 2. Copy this repo (or git clone) into the fail2ban directory.
 3. Update your environment (if using foreman).
-4. Ensure you have the [mysql module from PuppetForge](https://forge.puppet.com/puppetlabs/mysql) installed as the server depends on it.
+4. Ensure you have the [mysql module from PuppetForge](https://forge.puppet.com/puppetlabs/mysql) and [SELinux module from PuppetForge](https://forge.puppet.com/modules/puppet/selinux) installed as the server depends on them.
 
 ### Server - DB
 1. Update your database details under fail2ban::server
@@ -36,7 +36,7 @@ Related works and partial works have been presented too the [WLCG](https://wlcg.
 3. Only apply the class fail2ban::server to your server
 
 ### Server - API (Recommended)
-1. Update your database details under fail2ban::server and files/shared_server/api_cfg.py
+1. Update your database details under fail2ban::server and files/shared_server/api_cfg.py - Ensure the api.wsgi file is correct for your distro (eg Python 3.6 or 3.9 etc)
 2. Only apply the class fail2ban::server::api to your API server
 3. We highly recommend enabling SSL, LetsEncrypt/Certbot is simple and easy - You will need to uncomment the last few lines in (files/shared_server/http_api.conf) to force redirects to SSL
 
@@ -61,7 +61,7 @@ Please read and understand before you deploy into your environments.
 
 ### Notice - CentOS
 
-This module is aimed at deploying onto CentOS 7 and CentOS 8. Other distros probably wont work.
+This module is aimed at deploying onto CentOS 7, EL8 and EL9. Other distros probably wont work.
 
 ----
 
